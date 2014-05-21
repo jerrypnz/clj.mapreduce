@@ -37,7 +37,7 @@
   the same: this version uses the key as the first argument and a vector
   of values as the second argument."
   [m1 m2 & [reduce-fn]]
-  (if reduce-fn
+  (if-not reduce-fn
     (merge m1 m2)
     (persistent! (reduce (fn [m [k v]]
                            (if-let [v1 (get m k)]
